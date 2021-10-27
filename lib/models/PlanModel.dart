@@ -15,15 +15,15 @@ class PlanModel{
     this.planValue
   });
 
-  List<PlanModel> plansList(Map<String, dynamic> plans){
+  List<PlanModel> plansList(List<dynamic> plans){
     List<PlanModel> plansList = [];
     if(plans.isNotEmpty){
       for(int i=0; i < plans.length; i++){
         PlanModel object = PlanModel(
-            planId: plans['planId'],
-            planProvider: plans['planProvider'],
-            planType: plans['planType'],
-            planValue: plans['planValue']
+            planId: plans[i]['planId'],
+            planProvider: plans[i]['planProvider'],
+            planType: plans[i]['planType'],
+            planValue: plans[i]['planValue']
         );
         plansList.add(object);
       }
@@ -32,7 +32,7 @@ class PlanModel{
   }
 
   List<PlanModel> toList(String response){
-    return plansList( json.decode(response) ) ;
+    return plansList( jsonDecode(response) ) ;
   }
 
 }
