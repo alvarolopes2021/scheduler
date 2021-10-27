@@ -2,13 +2,13 @@
 
 App de agendamento de horários em consultórios médicos.
 
-# O que foi utilizado
+## O que foi utilizado
 
-*Flutter
+* Flutter
 
-	- SDK do flutter: https://flutter.dev/?gclsrc=ds&gclsrc=ds
+	** SDK do flutter: https://flutter.dev/?gclsrc=ds&gclsrc=ds
 	
-	- pubspec.yaml com as seguintes dependências: 
+	** pubspec.yaml com as seguintes dependências: 
 		* dev dependencies
 			* mockito: any
   			* build_runner: any
