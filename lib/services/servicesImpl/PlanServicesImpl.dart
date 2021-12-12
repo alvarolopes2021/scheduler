@@ -31,4 +31,13 @@ class PlanServicesImpl extends PlansServices{
     plansController.add(children);
     return children;
   }
+
+  Future<List<PlanModel>> testPlanModel() async{
+    List<PlanModel> plansList = [];
+    var response = await GetPlanController().getPlan();
+    if(response != null){
+      plansList = PlanModel().toList(response);
+    }
+    return plansList;
+  }
 }

@@ -16,6 +16,7 @@ App de agendamento de horários em consultórios médicos.
 		
 			* mockito: any
   			* build_runner: any
+			* test: any
 
 		- flutter dependencies
 			

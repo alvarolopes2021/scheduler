@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:scheduler/controllers/GetDoctorByPlanIdController.dart';
 
-import 'package:scheduler/controllers/GetPlanController.dart';
 import 'package:scheduler/models/DoctorsModel.dart';
-import 'package:scheduler/models/PlanModel.dart';
 
 import '../DoctorByPlanIdService.dart';
 
@@ -33,4 +31,14 @@ class DoctorsByPlanIdImpl extends DoctorsByPlanIdService{
     doctorsByPlanIdController.add(children);
     return children;
   }
+
+  Future<List<DoctorsModel>> testDoctorsModel(int planId) async{
+    List<DoctorsModel> doctorsByPlanIdList = [];
+    var response = await GetDoctorByPlanIdController().getDoctorByPlanId(planId);
+    if(response != null){
+      doctorsByPlanIdList = DoctorsModel().doctorsList(response);
+    }
+    return doctorsByPlanIdList;
+  }
+
 }
