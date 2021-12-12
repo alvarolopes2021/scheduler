@@ -1,5 +1,6 @@
-# Scheduler
-
+'''diff
+# - Scheduler
+'''
 App de agendamento de horários em consultórios médicos.
 
 ### O que foi utilizado
@@ -17,13 +18,14 @@ App de agendamento de horários em consultórios médicos.
 
 		- flutter dependencies
 			
-			* dio ou http: any
+			* dio 
+			* http
 
 * Node
 
 	- NodeJS: https://nodejs.org/en/
 	
-	- pacotes:	
+	- packages:	
 
 		* "cors": "^2.8.5",
 		* "express": "^4.17.1",
