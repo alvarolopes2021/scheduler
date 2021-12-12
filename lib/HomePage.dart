@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scheduler/pages/PlansPage.dart';
+import 'package:scheduler/utils/MainAppBar.dart';
 
 import 'constants/SystemConstants.dart';
 
@@ -16,10 +17,7 @@ class HomePage extends State<StatefulHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        leading: Image(image: AssetImage('assets/images/appointment_icon.png'),),
-        title: Text(SystemConstants.appName),
-      ),
+      appBar: MainAppBar().build(context) as AppBar,
       body: StatefulPlansPage()
     );
   }

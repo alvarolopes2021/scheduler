@@ -23,7 +23,7 @@ class PlanModel{
             planId: plans[i]['planId'],
             planProvider: plans[i]['planProvider'],
             planType: plans[i]['planType'],
-            planValue: plans[i]['planValue']
+            planValue: double.parse(plans[i]['planValue'].toString())
         );
         plansList.add(object);
       }

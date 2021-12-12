@@ -21,7 +21,7 @@ void main() {
           .thenAnswer((_) async =>
           http.Response('', 200));
 
-      expect(await GetPlanController().getPlan(), isA<List<PlanModel>>());
+      expect(await GetPlanController().getPlan(), isA<PlanModel>());
     });
 
     test('throws an exception if the http call completes with an error', () async {

@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:scheduler/constants/AppColors.dart';
+import 'package:scheduler/constants/SystemConstants.dart';
+import 'package:scheduler/pages/DoctorsByPlanIdPage.dart';
 import 'package:scheduler/services/servicesImpl/PlanServicesImpl.dart';
 
 class StatefulPlansPage extends StatefulWidget{
@@ -14,6 +16,7 @@ class StatefulPlansPage extends StatefulWidget{
 }
 
 class PlansPage extends State<StatefulPlansPage>{
+
   StreamController<List<Widget>> plansController = StreamController<List<Widget>>.broadcast();
 
   @override
@@ -36,8 +39,16 @@ class PlansPage extends State<StatefulPlansPage>{
         builder: (context, snapshot){
           if(snapshot.hasData){
             List<Widget> plans = snapshot.data as List<Widget>;
-            return ListView(
-              children: plans,
+            return ListView.builder(
+              itemCount: plans.length,
+              itemBuilder: (context, index){
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => StatefulDoctorsByPlanId(planKey: plans[index].key)));
+                  },
+                  child: plans[index],
+                );
+              },
             );
           }
           else{

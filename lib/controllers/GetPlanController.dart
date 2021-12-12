@@ -1,24 +1,20 @@
 import 'package:http/http.dart' as http;
-import 'package:scheduler/models/PlanModel.dart';
+import 'package:scheduler/constants/SystemConstants.dart';
 
 class GetPlanController{
 
   Future<dynamic> getPlan() async{
     print('**** GetPlan API ****');
-
-    List<PlanModel> plansList = [];
-    var url = Uri.parse('http://192.168.0.5:8080/plans');
+    
+    var url = Uri.parse('http://192.168.15.13:8080/' + HttpEndpoints.PLANS_ENDPOINT);
 
     try{
-      print('trying');
       var response = await http.get(url,
-          headers: {'Content-type': 'application/json; charset=UTF-8', 'Accept': 'application/json',
-            'Authorization': "application/json"}
-      ).timeout(Duration(seconds: 10));
+          headers: {'Content-type': 'application/json; charset=UTF-8', 'Accept': 'application/json',  'Authorization': "application/json"}
+      ).timeout(Duration(seconds: 60));
       if(response.statusCode == 200){
-        //print('plans data: '+ response.body.toString());
-        plansList = PlanModel().toList(response.body);
-        return plansList;
+        
+        return response.body;
       }
       else{
         return null;

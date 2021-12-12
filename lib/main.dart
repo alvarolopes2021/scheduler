@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'HomePage.dart';
 import 'constants/AppColors.dart';
+import 'constants/SystemConstants.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Scheduler',
+      title: SystemConstants.appName,
       theme: ThemeData(
         primarySwatch: AppColors.appPrimarySwatch,
       ),

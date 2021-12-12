@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:scheduler/controllers/GetPlanController.dart';
 import 'package:scheduler/models/PlanModel.dart';
+import 'package:scheduler/pages/DoctorsByPlanIdPage.dart';
 import 'package:scheduler/services/PlansServices.dart';
 
 class PlanServicesImpl extends PlansServices{
