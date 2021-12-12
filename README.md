@@ -1,6 +1,5 @@
-'''diff
-# - Scheduler
-'''
+#  Scheduler
+
 App de agendamento de horários em consultórios médicos.
 
 ### O que foi utilizado
