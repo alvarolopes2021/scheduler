@@ -1,4 +1,4 @@
-#  Scheduler
+#  Scheduler ![alt text](https://cdn-icons.flaticon.com/png/512/3634/premium/3634820.png?token=exp=1639345368~hmac=7f44bc070899b67f206419c09e746203)
 
 App de agendamento de horários em consultórios médicos.
 
