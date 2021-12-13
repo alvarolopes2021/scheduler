@@ -15,7 +15,7 @@ class GetDoctorByPlanIdController{
         headers: {'Content-type': 'application/json; charset=UTF-8', 'Accept': 'application/json'})
     );
     if(response.statusCode == 200){
-      print(response.data);
+      //print(response.data);
       return response.data;
     }
     else{

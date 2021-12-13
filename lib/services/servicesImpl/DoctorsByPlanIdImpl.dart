@@ -20,7 +20,7 @@ class DoctorsByPlanIdImpl extends DoctorsByPlanIdService{
       for(int i = 0; i< doctorsByPlanIdList.length; i++){
         children.add(
             ListTile(
-              key: Key(doctorsByPlanIdList[i].planId.toString()),
+              key: Key(doctorsByPlanIdList[i].planId.toString()+';'+doctorsByPlanIdList[i].doctorId.toString()),
               title: Text(doctorsByPlanIdList[i].doctorName.toString(), style: TextStyle(fontWeight: FontWeight.bold)),
               subtitle: Text(doctorsByPlanIdList[i].doctorExperience.toString()),
               tileColor: i % 2 == 0 ? Colors.white30 : Colors.blue.shade100,
@@ -32,7 +32,7 @@ class DoctorsByPlanIdImpl extends DoctorsByPlanIdService{
     return children;
   }
 
-  Future<List<DoctorsModel>> testDoctorsModel(int planId) async{
+  Future<List<DoctorsModel>> testDoctorsModel(String planId) async{
     List<DoctorsModel> doctorsByPlanIdList = [];
     var response = await GetDoctorByPlanIdController().getDoctorByPlanId(planId);
     if(response != null){

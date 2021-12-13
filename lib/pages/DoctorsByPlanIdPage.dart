@@ -6,6 +6,8 @@ import 'package:scheduler/constants/AppColors.dart';
 import 'package:scheduler/services/servicesImpl/DoctorsByPlanIdImpl.dart';
 import 'package:scheduler/utils/MainAppBar.dart';
 
+import 'DoctorTimePage.dart';
+
 class StatefulDoctorsByPlanId extends StatefulWidget {
   final Key? planKey;
   StatefulDoctorsByPlanId({ required this.planKey });
@@ -44,8 +46,20 @@ class DoctorsByPlanIdPage extends State<StatefulDoctorsByPlanId>{
         builder: (context, snapshot){
           if(snapshot.hasData){
             List<Widget> doctorsByPlanId = snapshot.data as List<Widget>;
-            return ListView(
-              children: doctorsByPlanId,
+            return ListView.builder(
+              itemCount: doctorsByPlanId.length,
+              itemBuilder: (context, index){
+                return GestureDetector(
+                  child: doctorsByPlanId[index],
+                  onTap: (){
+                    List<String> keys = doctorsByPlanId[index].key.toString().split(";");
+                    Map<String,String> criteria = {"planId": keys[0], "doctorId": keys[1]};
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                        StatefulDoctorsTime(planId: criteria["planId"], doctorId: criteria["doctorId"])
+                    ));
+                  },
+                );
+              },
             );
           }
           else{
